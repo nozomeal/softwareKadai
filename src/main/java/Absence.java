@@ -35,10 +35,7 @@ public class Absence extends HttpServlet {
     			    RequestDispatcher dispatcher = request.getRequestDispatcher(
     			        "/WEB-INF/jsp/Absence.jsp");
     			    dispatcher.forward(request, response);
-    			   /* response.setContentType("text/plain");
-    			    response.setCharacterEncoding("UTF-8");*/
-
-    	  //  response.getWriter().print("Hello App Engine!\r\n");
+    			  
 
     	  }
 
