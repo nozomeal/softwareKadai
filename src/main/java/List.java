@@ -77,7 +77,7 @@ public class List extends HttpServlet {
     	}
     	 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Absence.jsp");
 		    dispatcher.forward(request, response);
-		//doGet(request, response);
+		
 	}
 
 }
