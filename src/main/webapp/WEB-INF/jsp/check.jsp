@@ -15,8 +15,7 @@ width:300px; -webkit-border-radius: 3px;
 }
 input.id{margin-top:360pt; }
 div{color:#ffffff;  font-size:40px; }
-div.yes{margin-top:70pt;}
-div.no{margin-top:-40pt;}
+
 a{text-decoration:none;}
 a.yes{margin-left:250pt;}
 a.no{margin-left:600pt;}
