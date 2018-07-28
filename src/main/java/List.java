@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.*;
 /**
  * Servlet implementation class List
  */
@@ -23,28 +24,60 @@ public class List extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+  //追加
+	//List<String> list = new ArrayList<String>();//リストで管理
+	String number ="";
+	String name = "";
+    //追加
+    ListModel model = new ListModel(number,name);
+   
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
     		  throws ServletException, IOException {
-    			    RequestDispatcher dispatcher = request.getRequestDispatcher(
-    			        "/WEB-INF/jsp/list.jsp");
-    			    dispatcher.forward(request, response);
-    			   /* response.setContentType("text/plain");
-    			    response.setCharacterEncoding("UTF-8");*/
-
-    	  //  response.getWriter().print("Hello App Engine!\r\n");
-
+    	
+        name=model.getName();
+        number=model.getNumber();
+        System.out.println("doGet");
+        System.out.print("number:"+number+"　/");
+	    System.out.println("name:"+name);
+    	
+    		 getServletConfig().getServletContext().
+    	      getRequestDispatcher("/WEB-INF/jsp/list.jsp").forward(request, response);
+    	
     	  }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//追加
+    	String number="";
+    	String name="";
+    	
+    	try {
+    		number = request.getParameter("number"); 
+    		name = request.getParameter("name"); 
+    	}catch(NumberFormatException e) {
+    	     
+        }
+    	request.setAttribute("number", number);
+        request.setAttribute("name", name);
+        model.setName(name);
+        model.setNumber(number);
+        System.out.println("doPost");
+        System.out.print("number:"+number+"　/");
+	     System.out.println("name:"+name);
+    	if(number!=null&&name!=null) {
+    		 getServletConfig().getServletContext().
+    	      getRequestDispatcher("/WEB-INF/jsp/list.jsp").forward(request, response);
+    	}
+    	 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Absence.jsp");
+		    dispatcher.forward(request, response);
+		//doGet(request, response);
 	}
 
 }

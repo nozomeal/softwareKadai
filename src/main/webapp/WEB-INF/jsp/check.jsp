@@ -28,10 +28,12 @@ p{text-align:center;margin-top:300pt;font-family: 'Patua One', cursive;color:#ff
 --></style>
 <title>Check!</title>
  <body>
-  	<input type="text" name="userID" class="id"><br>
+  <form method="POST" action="/List">
+  	<input type="text" name="number" class="id"><br>
 <input type="text" name="name"><br>
-    <div class="yes"><a href='/Attendance' class="yes">Yes!</a></div>
-   	<div class="no"><a href='/Absence' class="no">No...</a></div>
+<div class="yes">
+<input  type="submit" value="yes"></div></form>
+   
 
   	<p>by Chilly girls</p>
   </body>
